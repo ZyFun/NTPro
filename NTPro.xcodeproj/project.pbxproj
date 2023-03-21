@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		2CC6D2C229C9F02E00A66214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */; };
-		2CC6D2C429C9F02E00A66214 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C329C9F02E00A66214 /* SceneDelegate.swift */; };
-		2CC6D2C629C9F02E00A66214 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C529C9F02E00A66214 /* ViewController.swift */; };
-		2CC6D2C929C9F02E00A66214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C729C9F02E00A66214 /* Main.storyboard */; };
 		2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CA29C9F03000A66214 /* Assets.xcassets */; };
 		2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */; };
+		2CC6D2D929C9F26000A66214 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2D829C9F26000A66214 /* Server.swift */; };
+		2CC6D2DD29C9F32A00A66214 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2DC29C9F32A00A66214 /* DealViewController.swift */; };
+		2CC6D2DF29C9F4A900A66214 /* DealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2DE29C9F4A900A66214 /* DealModel.swift */; };
+		2CC6D2E129C9F4BC00A66214 /* DealPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2E029C9F4BC00A66214 /* DealPresenter.swift */; };
+		2CC6D2E429C9F7FF00A66214 /* DealDataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2E329C9F7FF00A66214 /* DealDataSourceProvider.swift */; };
+		2CC6D2E729C9FAAB00A66214 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2E629C9FAAB00A66214 /* DealCell.swift */; };
+		2CC6D2E929CA02CC00A66214 /* DealConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2E829CA02CC00A66214 /* DealConfigurator.swift */; };
+		2CC6D2EC29CA133900A66214 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2EB29CA133900A66214 /* PresentationAssembly.swift */; };
+		2CC6D2EE29CA136C00A66214 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2ED29CA136C00A66214 /* ServiceAssembly.swift */; };
+		2CC6D2F129CA164000A66214 /* DealHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2F029CA164000A66214 /* DealHeaderFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CC6D2BE29C9F02E00A66214 /* NTPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CC6D2C329C9F02E00A66214 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CC6D2C529C9F02E00A66214 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2CC6D2C829C9F02E00A66214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CC6D2CA29C9F03000A66214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CC6D2CD29C9F03000A66214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CC6D2CF29C9F03000A66214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC6D2D829C9F26000A66214 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		2CC6D2DC29C9F32A00A66214 /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
+		2CC6D2DE29C9F4A900A66214 /* DealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealModel.swift; sourceTree = "<group>"; };
+		2CC6D2E029C9F4BC00A66214 /* DealPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealPresenter.swift; sourceTree = "<group>"; };
+		2CC6D2E329C9F7FF00A66214 /* DealDataSourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDataSourceProvider.swift; sourceTree = "<group>"; };
+		2CC6D2E629C9FAAB00A66214 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		2CC6D2E829CA02CC00A66214 /* DealConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealConfigurator.swift; sourceTree = "<group>"; };
+		2CC6D2EB29CA133900A66214 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
+		2CC6D2ED29CA136C00A66214 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		2CC6D2F029CA164000A66214 /* DealHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealHeaderFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,94 @@
 		2CC6D2C029C9F02E00A66214 /* NTPro */ = {
 			isa = PBXGroup;
 			children = (
-				2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */,
-				2CC6D2C329C9F02E00A66214 /* SceneDelegate.swift */,
-				2CC6D2C529C9F02E00A66214 /* ViewController.swift */,
-				2CC6D2C729C9F02E00A66214 /* Main.storyboard */,
-				2CC6D2CA29C9F03000A66214 /* Assets.xcassets */,
-				2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */,
 				2CC6D2CF29C9F03000A66214 /* Info.plist */,
+				2CC6D2D529C9F19000A66214 /* Default */,
+				2CC6D2EA29CA12F700A66214 /* Service */,
+				2CC6D2DA29C9F2D900A66214 /* Presentation */,
 			);
 			path = NTPro;
+			sourceTree = "<group>";
+		};
+		2CC6D2D529C9F19000A66214 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2D629C9F1D800A66214 /* Recources */,
+				2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */,
+				2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		2CC6D2D629C9F1D800A66214 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2CA29C9F03000A66214 /* Assets.xcassets */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		2CC6D2D729C9F21F00A66214 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2D829C9F26000A66214 /* Server.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		2CC6D2DA29C9F2D900A66214 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2EB29CA133900A66214 /* PresentationAssembly.swift */,
+				2CC6D2DB29C9F31100A66214 /* DealScreen */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2CC6D2DB29C9F31100A66214 /* DealScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2EF29CA15F400A66214 /* Headers */,
+				2CC6D2E529C9FA7900A66214 /* Cells */,
+				2CC6D2E229C9F7A800A66214 /* Providers */,
+				2CC6D2DE29C9F4A900A66214 /* DealModel.swift */,
+				2CC6D2DC29C9F32A00A66214 /* DealViewController.swift */,
+				2CC6D2E029C9F4BC00A66214 /* DealPresenter.swift */,
+				2CC6D2E829CA02CC00A66214 /* DealConfigurator.swift */,
+			);
+			path = DealScreen;
+			sourceTree = "<group>";
+		};
+		2CC6D2E229C9F7A800A66214 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2E329C9F7FF00A66214 /* DealDataSourceProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		2CC6D2E529C9FA7900A66214 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2E629C9FAAB00A66214 /* DealCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2CC6D2EA29CA12F700A66214 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2ED29CA136C00A66214 /* ServiceAssembly.swift */,
+				2CC6D2D729C9F21F00A66214 /* Mock */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2CC6D2EF29CA15F400A66214 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6D2F029CA164000A66214 /* DealHeaderFooterView.swift */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +220,6 @@
 			files = (
 				2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */,
 				2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */,
-				2CC6D2C929C9F02E00A66214 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +230,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC6D2C629C9F02E00A66214 /* ViewController.swift in Sources */,
+				2CC6D2DD29C9F32A00A66214 /* DealViewController.swift in Sources */,
+				2CC6D2DF29C9F4A900A66214 /* DealModel.swift in Sources */,
+				2CC6D2E929CA02CC00A66214 /* DealConfigurator.swift in Sources */,
+				2CC6D2E729C9FAAB00A66214 /* DealCell.swift in Sources */,
+				2CC6D2E129C9F4BC00A66214 /* DealPresenter.swift in Sources */,
+				2CC6D2EE29CA136C00A66214 /* ServiceAssembly.swift in Sources */,
+				2CC6D2E429C9F7FF00A66214 /* DealDataSourceProvider.swift in Sources */,
+				2CC6D2F129CA164000A66214 /* DealHeaderFooterView.swift in Sources */,
+				2CC6D2EC29CA133900A66214 /* PresentationAssembly.swift in Sources */,
+				2CC6D2D929C9F26000A66214 /* Server.swift in Sources */,
 				2CC6D2C229C9F02E00A66214 /* AppDelegate.swift in Sources */,
-				2CC6D2C429C9F02E00A66214 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2CC6D2C729C9F02E00A66214 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CC6D2C829C9F02E00A66214 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,9 +383,9 @@
 				INFOPLIST_FILE = NTPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,9 +393,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zyfunphoto.NTPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,9 +413,9 @@
 				INFOPLIST_FILE = NTPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,9 +423,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zyfunphoto.NTPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
