@@ -40,8 +40,11 @@ final class DealViewController: UIViewController {
 
 extension DealViewController: DealView {
     func display(models: [DealModel]) {
-        dataSourceProvider?.dealModels = models
-        dealTableView.reloadData()
+        self.dataSourceProvider?.dealModels = models
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSourceProvider?.updateDataSource()
+        }
     }
 }
 
@@ -61,10 +64,9 @@ private extension DealViewController {
     }
     
     func setupTableView() {
-        dealTableView.dataSource = dataSourceProvider
-        dealTableView.delegate = dataSourceProvider
-        
         registerElements()
+        dataSourceProvider?.makeDataSource(with: dealTableView)
+        dealTableView.delegate = dataSourceProvider
     }
     
     func registerElements() {

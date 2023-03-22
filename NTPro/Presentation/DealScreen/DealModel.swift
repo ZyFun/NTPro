@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DealModel {
+struct DealModel: Hashable {
     let dateModifier: Date
     let instrumentName: String
     let price: Double

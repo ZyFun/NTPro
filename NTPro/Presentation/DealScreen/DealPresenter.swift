@@ -18,7 +18,11 @@ final class DealPresenter {
     
     weak var view: DealView?
     var server: Server?
-    var models: [DealModel] = []
+    
+    // MARK: - Private Properties
+    
+    private var models: [DealModel] = []
+    private var timer: Timer?
     
     // MARK: - Initializer
     
@@ -32,6 +36,7 @@ final class DealPresenter {
 extension DealPresenter: DealPresentationLogic {
     func startSubscribeToDeals() {
         server?.subscribeToDeals(callback: { [weak self] deals in
+            guard let self else { return }
             deals.forEach { deal in
                 let dealModel = DealModel(
                     dateModifier: deal.dateModifier,
@@ -41,15 +46,26 @@ extension DealPresenter: DealPresentationLogic {
                     side: deal.side
                 )
                 
-                self?.models.append(dealModel)
+                self.models.append(dealModel)
             }
         })
     }
     
     func getDeals() {
-        // FIXME: Временно для проверки
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.view?.display(models: self.models)
-        }
+        // Делаю задержку для обновления данных, так как данных
+        // слишком много и это вызывает зависание таблицы
+        self.timer = Timer.scheduledTimer(
+            withTimeInterval: 1,
+            repeats: true,
+            block: { _ in
+                // FIXME: Временное решение по сортировке для проверки работы
+                self.models.sort() {
+                    $0.dateModifier < $1.dateModifier
+                }
+                
+                self.view?.display(models: self.models)
+                print(self.models.count)
+            }
+        )
     }
 }

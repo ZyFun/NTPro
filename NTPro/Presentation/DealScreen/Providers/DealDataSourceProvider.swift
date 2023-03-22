@@ -7,8 +7,10 @@
 
 import UIKit
 
-protocol IDealDataSourceProvider: UITableViewDelegate, UITableViewDataSource {
+protocol IDealDataSourceProvider: UITableViewDelegate {
     var dealModels: [DealModel] { get set}
+    func makeDataSource(with dealTableView: UITableView)
+    func updateDataSource()
 }
 
 final class DealDataSourceProvider: NSObject, IDealDataSourceProvider {
@@ -16,41 +18,49 @@ final class DealDataSourceProvider: NSObject, IDealDataSourceProvider {
     // MARK: - Public properties
     
     var dealModels: [DealModel] = []
+    
+    // MARK: - Private properties
+    
+    private var dataSource: UITableViewDiffableDataSource<Section, DealModel>!
 }
 
 // MARK: - Table view data source
 
 extension DealDataSourceProvider {
-    
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        dealModels.count
+    enum Section {
+        case main
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: DealCell.identifier,
-            for: indexPath
-        ) as? DealCell else {
-            return UITableViewCell()
-        }
-        
-        let dealModel = dealModels[indexPath.row]
-        
-        cell.config(
-            date: dealModel.dateModifier,
-            instrumentName: dealModel.instrumentName,
-            price: dealModel.price,
-            amount: dealModel.amount,
-            side: dealModel.side
+    func makeDataSource(with dealTableView: UITableView) {
+        dataSource = UITableViewDiffableDataSource(
+            tableView: dealTableView,
+            cellProvider: { tableView, indexPath, model -> UITableViewCell? in
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: DealCell.identifier,
+                    for: indexPath
+                ) as? DealCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.config(
+                    date: model.dateModifier,
+                    instrumentName: model.instrumentName,
+                    price: model.price,
+                    amount: model.amount,
+                    side: model.side
+                )
+                
+                return cell
+            }
         )
+    }
+    
+    func updateDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, DealModel>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(dealModels, toSection: .main)
         
-        return cell
+        dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
     }
 }
 
