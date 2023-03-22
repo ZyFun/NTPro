@@ -42,7 +42,13 @@ extension DealDataSourceProvider {
         
         let dealModel = dealModels[indexPath.row]
         
-        cell.config()
+        cell.config(
+            date: dealModel.dateModifier,
+            instrumentName: dealModel.instrumentName,
+            price: dealModel.price,
+            amount: dealModel.amount,
+            side: dealModel.side
+        )
         
         return cell
     }

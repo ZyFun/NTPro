@@ -9,6 +9,7 @@ import Foundation
 
 protocol DealPresentationLogic: AnyObject {
     init(view: DealView)
+    func startSubscribeToDeals()
     func getDeals()
 }
 
@@ -17,6 +18,7 @@ final class DealPresenter {
     
     weak var view: DealView?
     var server: Server?
+    var models: [DealModel] = []
     
     // MARK: - Initializer
     
@@ -28,24 +30,26 @@ final class DealPresenter {
 // MARK: - Presentation Logic
 
 extension DealPresenter: DealPresentationLogic {
-    func getDeals() {
-        var models: [DealModel] = []
-        // FIXME: Временно для проверки
-        server?.subscribeToDeals(callback: { deals in
+    func startSubscribeToDeals() {
+        server?.subscribeToDeals(callback: { [weak self] deals in
             deals.forEach { deal in
                 let dealModel = DealModel(
-                    id: deal.id,
                     dateModifier: deal.dateModifier,
                     instrumentName: deal.instrumentName,
                     price: (deal.price * 100).rounded(.toNearestOrAwayFromZero) / 100,
                     amount: Int(deal.amount.rounded()),
-                    side: deal.side.hashValue // FIXME: Временно для проверки
+                    side: deal.side
                 )
                 
-                models.append(dealModel)
+                self?.models.append(dealModel)
             }
-            
-            self.view?.display(models: models)
         })
+    }
+    
+    func getDeals() {
+        // FIXME: Временно для проверки
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.view?.display(models: self.models)
+        }
     }
 }

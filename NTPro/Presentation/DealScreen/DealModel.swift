@@ -8,10 +8,9 @@
 import Foundation
 
 struct DealModel {
-    let id: Int64
     let dateModifier: Date
     let instrumentName: String
     let price: Double
     let amount: Int
-    let side: Int // 0: sell, 1: buy
+    let side: Deal.Side
 }

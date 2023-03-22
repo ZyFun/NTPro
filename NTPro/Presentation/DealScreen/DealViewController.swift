@@ -31,7 +31,8 @@ final class DealViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-//        presenter?.getDeals()
+        presenter?.startSubscribeToDeals()
+        presenter?.getDeals()
     }
 }
 
@@ -83,8 +84,8 @@ private extension DealViewController {
         
         NSLayoutConstraint.activate([
             dealTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            dealTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dealTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dealTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            dealTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             dealTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
