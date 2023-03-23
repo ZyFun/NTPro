@@ -21,7 +21,14 @@ final class DealDataSourceProvider: NSObject, IDealDataSourceProvider {
     
     // MARK: - Private properties
     
-    private var dataSource: UITableViewDiffableDataSource<Section, DealModel>!
+    private var dataSource: UITableViewDiffableDataSource<Section, DealModel>?
+    private var infiniteScrollModel: [DealModel] = []
+    
+    private var countModels = 25
+    private func getNewModels() {
+        countModels += 25
+        infiniteScrollModel.append(contentsOf: dealModels.prefix(countModels))
+    }
 }
 
 // MARK: - Table view data source
@@ -56,11 +63,13 @@ extension DealDataSourceProvider {
     }
     
     func updateDataSource() {
+        infiniteScrollModel = Array(dealModels.prefix(countModels))
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, DealModel>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(dealModels, toSection: .main)
+        snapshot.appendItems(infiniteScrollModel, toSection: .main)
         
-        dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
+        dataSource?.apply(snapshot, animatingDifferences: true, completion: nil)
     }
 }
 
@@ -73,5 +82,15 @@ extension DealDataSourceProvider {
         ) as? DealHeaderFooterView
         
         return header
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        if indexPath.row == infiniteScrollModel.count - 2 {
+            getNewModels()
+        }
     }
 }

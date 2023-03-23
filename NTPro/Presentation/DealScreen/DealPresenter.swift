@@ -52,9 +52,10 @@ extension DealPresenter: DealPresentationLogic {
     }
     
     func getDeals() {
-        // Делаю задержку для обновления данных, так как данных
-        // слишком много и это вызывает зависание таблицы
-        self.timer = Timer.scheduledTimer(
+        // Делаю задержку для обновления данных, для уменьшения нагрузки на процессор
+        // при сортировке массива. 1 секунды достаточно, чтобы отображать актуальную
+        // информацию.
+        timer = Timer.scheduledTimer(
             withTimeInterval: 1,
             repeats: true,
             block: { _ in
