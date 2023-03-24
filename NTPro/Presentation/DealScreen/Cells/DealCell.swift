@@ -98,7 +98,7 @@ extension DealCell {
         amount: Int,
         side: Deal.Side
     ) {
-        dateLabel.text = date.ISO8601Format()
+        dateLabel.text = date.toString()
         instrumentNameLabel.text = instrumentName
         priceLabel.text = "\(price)"
         amountLabel.text = "\(amount)"

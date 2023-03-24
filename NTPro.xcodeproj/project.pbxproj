@@ -20,6 +20,7 @@
 		2CC6D2EC29CA133900A66214 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2EB29CA133900A66214 /* PresentationAssembly.swift */; };
 		2CC6D2EE29CA136C00A66214 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2ED29CA136C00A66214 /* ServiceAssembly.swift */; };
 		2CC6D2F129CA164000A66214 /* DealHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2F029CA164000A66214 /* DealHeaderFooterView.swift */; };
+		2CE7E1CB29CE388300F38319 /* Date+StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7E1CA29CE388300F38319 /* Date+StringFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2CC6D2EB29CA133900A66214 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
 		2CC6D2ED29CA136C00A66214 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		2CC6D2F029CA164000A66214 /* DealHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealHeaderFooterView.swift; sourceTree = "<group>"; };
+		2CE7E1CA29CE388300F38319 /* Date+StringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StringFormatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				2CC6D2CF29C9F03000A66214 /* Info.plist */,
 				2CC6D2D529C9F19000A66214 /* Default */,
+				2CE7E1C829CE384900F38319 /* Common */,
 				2CC6D2EA29CA12F700A66214 /* Service */,
 				2CC6D2DA29C9F2D900A66214 /* Presentation */,
 			);
@@ -160,6 +163,22 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		2CE7E1C829CE384900F38319 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2CE7E1C929CE385400F38319 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2CE7E1C929CE385400F38319 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CE7E1CA29CE388300F38319 /* Date+StringFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,6 +258,7 @@
 				2CC6D2E429C9F7FF00A66214 /* DealDataSourceProvider.swift in Sources */,
 				2CC6D2F129CA164000A66214 /* DealHeaderFooterView.swift in Sources */,
 				2CC6D2EC29CA133900A66214 /* PresentationAssembly.swift in Sources */,
+				2CE7E1CB29CE388300F38319 /* Date+StringFormatter.swift in Sources */,
 				2CC6D2D929C9F26000A66214 /* Server.swift in Sources */,
 				2CC6D2C229C9F02E00A66214 /* AppDelegate.swift in Sources */,
 			);
