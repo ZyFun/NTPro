@@ -12,7 +12,7 @@ protocol DealPresentationLogic: AnyObject {
     func startSubscribeToDeals()
     func getDeals()
     func reversedSort()
-    func sortBy(_ sortingMethod: DealPresenter.DealSortingMethod)
+    func sort(_ sortingMethod: DealPresenter.DealSortingMethod)
 }
 
 final class DealPresenter {
@@ -89,10 +89,12 @@ extension DealPresenter {
 extension DealPresenter: DealPresentationLogic {
     func reversedSort() {
         isReversedSort.toggle()
+        dealsSorting()
     }
     
-    func sortBy(_ sortingMethod: DealSortingMethod) {
+    func sort(_ sortingMethod: DealSortingMethod) {
         dealSortingMethod = sortingMethod
+        dealsSorting()
     }
     
     func startSubscribeToDeals() {
