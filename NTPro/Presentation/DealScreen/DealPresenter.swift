@@ -23,7 +23,8 @@ final class DealPresenter {
     
     // MARK: - Private Properties
     
-    private var models: [DealModel] = []
+    private var models: [Int: DealModel] = [:]
+    private var sortedModels: [DealModel] = []
     private var timer: Timer?
     private var isReversedSort = false
     private var dealSortingMethod = DealSortingMethod.byDateModifier
@@ -39,31 +40,31 @@ final class DealPresenter {
     private func dealsSorting() {
         switch dealSortingMethod {
         case .byDateModifier:
-            models.sort {
+            sortedModels.sort {
                 isReversedSort
                 ? $0.dateModifier < $1.dateModifier
                 : $0.dateModifier > $1.dateModifier
             }
         case .byInstrumentName:
-            models.sort {
+            sortedModels.sort {
                 isReversedSort
                 ? $0.instrumentName < $1.instrumentName
                 : $0.instrumentName > $1.instrumentName
             }
         case .byPrice:
-            models.sort {
+            sortedModels.sort {
                 isReversedSort
                 ? $0.price < $1.price
                 : $0.price > $1.price
             }
         case .byAmount:
-            models.sort {
+            sortedModels.sort {
                 isReversedSort
                 ? $0.amount < $1.amount
                 : $0.amount > $1.amount
             }
         case .bySide:
-            models.sort {
+            sortedModels.sort {
                 isReversedSort
                 ? $0.side.hashValue < $1.side.hashValue
                 : $0.side.hashValue > $1.side.hashValue
@@ -100,6 +101,7 @@ extension DealPresenter: DealPresentationLogic {
     func startSubscribeToDeals() {
         server?.subscribeToDeals(callback: { [weak self] deals in
             guard let self else { return }
+            
             deals.forEach { deal in
                 
                 let dateModifier = deal.dateModifier
@@ -116,7 +118,7 @@ extension DealPresenter: DealPresentationLogic {
                     side: side
                 )
                 
-                self.models.append(dealModel)
+                self.models[Int(deal.id)] = dealModel
             }
         })
     }
@@ -125,14 +127,38 @@ extension DealPresenter: DealPresentationLogic {
         // Делаю задержку для обновления данных, для уменьшения нагрузки на процессор
         // при сортировке массива. 1 секунды достаточно, чтобы отображать актуальную
         // информацию.
+        
+        // Это решение не оптимально, так как идёт постоянная сортировка полностью
+        // не отсортированных данных.
+        
+        // Первый вариант (можно посмотреть в истории коммитов), был без учёта того, что id
+        // должен быть уникальным и это работало лучше. Так как не отсортированные данные
+        // добавлялись в конец массива и я работал с почти полностью отсортированными данными.
+        // Нагрузка шла только при полной пересортировке по другому полю. При таком подходе
+        // нагрузка на процессор была около 40% при 900_000 объектов в массиве.
+        
+        // Пытался написать алгоритм, чтобы не обновлять массив целиком, а только часть
+        // или добавлять новые данные, обновляя структуру. Но оно оказалось еще хуже.
+        // Нагрузка на процессор зашкаливала уже на 20_000 объектов. К сожалению этот вариант
+        // решения не оставил.
+        
+        // После множества разных попыток, сдался на этом варианте.
+        // Слишком большой поток данных и уже просто не знаю что с этим делать.
+        
+        // У этой задачи вообще есть решение?))
+        // Если взять к примеру любое приложение с инвестициями и представить что 1 стакан,
+        // это 1 ячейка, то даже там такого количества одновременно загруженных
+        // ячеек и массивов в память нет :)
         timer = Timer.scheduledTimer(
             withTimeInterval: 1,
             repeats: true,
             block: { [weak self] _ in
                 guard let self else { return }
+                
+                self.sortedModels = Array(self.models.values)
                 self.dealsSorting()
-                self.view?.display(models: self.models)
-                print(self.models.count)
+                self.view?.display(models: self.sortedModels)
+                debugPrint("Array \(self.sortedModels.count)")
             }
         )
     }
