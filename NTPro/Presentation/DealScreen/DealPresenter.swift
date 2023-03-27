@@ -25,9 +25,12 @@ final class DealPresenter {
     
     private var models: [Int: DealModel] = [:]
     private var sortedModels: [DealModel] = []
-    private var timer: Timer?
     private var isReversedSort = false
     private var dealSortingMethod = DealSortingMethod.byDateModifier
+    
+    private var timer: Timer?
+    private var group = DispatchGroup()
+    private let queue = DispatchQueue(label: "sorting-deals")
     
     // MARK: - Initializer
     
@@ -89,77 +92,95 @@ extension DealPresenter {
 
 extension DealPresenter: DealPresentationLogic {
     func reversedSort() {
-        isReversedSort.toggle()
-        dealsSorting()
+        group.enter()
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.stopUpdateData()
+        }
+        
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.isReversedSort.toggle()
+            self.dealsSorting()
+            self.view?.display(models: self.sortedModels)
+            self.group.leave()
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.startUpdateData()
+        }
     }
     
     func sort(_ sortingMethod: DealSortingMethod) {
-        dealSortingMethod = sortingMethod
-        dealsSorting()
+        group.enter()
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.stopUpdateData()
+        }
+        
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.dealSortingMethod = sortingMethod
+            self.dealsSorting()
+            self.view?.display(models: self.sortedModels)
+            self.group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.startUpdateData()
+        }
     }
     
     func startSubscribeToDeals() {
         server?.subscribeToDeals(callback: { [weak self] deals in
             guard let self else { return }
             
-            deals.forEach { deal in
-                
-                let dateModifier = deal.dateModifier
-                let instrumentName = deal.instrumentName
-                let price = (deal.price * 100).rounded(.toNearestOrAwayFromZero) / 100
-                let amount = Int(deal.amount.rounded())
-                let side = deal.side
-                
-                let dealModel = DealModel(
-                    dateModifier: dateModifier,
-                    instrumentName: instrumentName,
-                    price: price,
-                    amount: amount,
-                    side: side
-                )
-                
-                self.models[Int(deal.id)] = dealModel
+            self.queue.async {
+                deals.forEach { deal in
+                    let dateModifier = deal.dateModifier
+                    let instrumentName = deal.instrumentName
+                    let price = (deal.price * 100).rounded(.toNearestOrAwayFromZero) / 100
+                    let amount = Int(deal.amount.rounded())
+                    let side = deal.side
+                    
+                    let dealModel = DealModel(
+                        dateModifier: dateModifier,
+                        instrumentName: instrumentName,
+                        price: price,
+                        amount: amount,
+                        side: side
+                    )
+                    
+                    self.models[Int(deal.id)] = dealModel
+                }
             }
         })
     }
     
     func getDeals() {
-        // Делаю задержку для обновления данных, для уменьшения нагрузки на процессор
-        // при сортировке массива. 1 секунды достаточно, чтобы отображать актуальную
-        // информацию.
-        
-        // Это решение не оптимально, так как идёт постоянная сортировка полностью
-        // не отсортированных данных.
-        
-        // Первый вариант (можно посмотреть в истории коммитов), был без учёта того, что id
-        // должен быть уникальным и это работало лучше. Так как не отсортированные данные
-        // добавлялись в конец массива и я работал с почти полностью отсортированными данными.
-        // Нагрузка шла только при полной пересортировке по другому полю. При таком подходе
-        // нагрузка на процессор была около 40% при 900_000 объектов в массиве.
-        
-        // Пытался написать алгоритм, чтобы не обновлять массив целиком, а только часть
-        // или добавлять новые данные, обновляя структуру. Но оно оказалось еще хуже.
-        // Нагрузка на процессор зашкаливала уже на 20_000 объектов. К сожалению этот вариант
-        // решения не оставил.
-        
-        // После множества разных попыток, сдался на этом варианте.
-        // Слишком большой поток данных и уже просто не знаю что с этим делать.
-        
-        // У этой задачи вообще есть решение?))
-        // Если взять к примеру любое приложение с инвестициями и представить что 1 стакан,
-        // это 1 ячейка, то даже там такого количества одновременно загруженных
-        // ячеек и массивов в память нет :)
+        startUpdateData()
+    }
+    
+    private func startUpdateData() {
         timer = Timer.scheduledTimer(
-            withTimeInterval: 1,
-            repeats: true,
-            block: { [weak self] _ in
-                guard let self else { return }
-                
-                self.sortedModels = Array(self.models.values)
-                self.dealsSorting()
-                self.view?.display(models: self.sortedModels)
-                debugPrint("Array \(self.sortedModels.count)")
-            }
+            timeInterval: 2,
+            target: self,
+            selector: #selector(updateData),
+            userInfo: nil,
+            repeats: true
         )
+    }
+    
+    private func stopUpdateData() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc private func updateData() {
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.sortedModels = Array(self.models.values)
+            self.dealsSorting()
+            self.view?.display(models: self.sortedModels)
+            debugPrint("Array \(self.sortedModels.count)")
+        }
     }
 }
