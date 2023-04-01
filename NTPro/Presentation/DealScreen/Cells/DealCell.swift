@@ -7,9 +7,7 @@
 
 import UIKit
 
-class DealCell: UITableViewCell {
-    static let identifier = String(describing: DealCell.self)
-    
+class DealCell: UITableViewCell, IdentifiableCell {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "13:43:56 09.12.2022"
