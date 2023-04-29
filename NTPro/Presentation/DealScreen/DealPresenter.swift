@@ -30,7 +30,7 @@ final class DealPresenter {
     
     private var timer: Timer?
     private var group = DispatchGroup()
-    private let queue = DispatchQueue(label: "sorting-deals")
+    private let queue = DispatchQueue(label: "sorting-deals", qos: .utility)
     
     // MARK: - Initializer
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9C459B29FDB1EB00E54C92 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C459A29FDB1EB00E54C92 /* README.md */; };
 		2CC6D2C229C9F02E00A66214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */; };
 		2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CA29C9F03000A66214 /* Assets.xcassets */; };
 		2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C9C459A29FDB1EB00E54C92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2CC6D2BE29C9F02E00A66214 /* NTPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC6D2CA29C9F03000A66214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		2CC6D2B529C9F02E00A66214 = {
 			isa = PBXGroup;
 			children = (
+				2C9C459A29FDB1EB00E54C92 /* README.md */,
 				2CC6D2C029C9F02E00A66214 /* NTPro */,
 				2CC6D2BF29C9F02E00A66214 /* Products */,
 			);
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9C459B29FDB1EB00E54C92 /* README.md in Resources */,
 				2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */,
 				2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */,
 			);
@@ -340,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -394,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
