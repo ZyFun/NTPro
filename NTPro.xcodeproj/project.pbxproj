@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2C9C459B29FDB1EB00E54C92 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C459A29FDB1EB00E54C92 /* README.md */; };
+		2CA2B1FB29FE8DD80070DCF4 /* Screenshot001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA2B1F929FE8DD80070DCF4 /* Screenshot001.png */; };
+		2CA2B1FC29FE8DD80070DCF4 /* Screenshot000.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA2B1FA29FE8DD80070DCF4 /* Screenshot000.png */; };
+		2CA2B1FE29FE8E400070DCF4 /* Demo000.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2CA2B1FD29FE8E400070DCF4 /* Demo000.gif */; };
 		2CC6D2C229C9F02E00A66214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */; };
 		2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CA29C9F03000A66214 /* Assets.xcassets */; };
 		2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC6D2CC29C9F03000A66214 /* LaunchScreen.storyboard */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		2C9C459A29FDB1EB00E54C92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2CA2B1F929FE8DD80070DCF4 /* Screenshot001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot001.png; sourceTree = "<group>"; };
+		2CA2B1FA29FE8DD80070DCF4 /* Screenshot000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot000.png; sourceTree = "<group>"; };
+		2CA2B1FD29FE8E400070DCF4 /* Demo000.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Demo000.gif; sourceTree = "<group>"; };
 		2CC6D2BE29C9F02E00A66214 /* NTPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC6D2C129C9F02E00A66214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC6D2CA29C9F03000A66214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,11 +63,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CA2B1F729FE89940070DCF4 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				2CA2B1FA29FE8DD80070DCF4 /* Screenshot000.png */,
+				2CA2B1F929FE8DD80070DCF4 /* Screenshot001.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		2CA2B1F829FE89A20070DCF4 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				2CA2B1FD29FE8E400070DCF4 /* Demo000.gif */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		2CC6D2B529C9F02E00A66214 = {
 			isa = PBXGroup;
 			children = (
 				2C9C459A29FDB1EB00E54C92 /* README.md */,
 				2CC6D2C029C9F02E00A66214 /* NTPro */,
+				2CA2B1F729FE89940070DCF4 /* Screenshots */,
+				2CA2B1F829FE89A20070DCF4 /* Demo */,
 				2CC6D2BF29C9F02E00A66214 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -254,6 +279,9 @@
 				2C9C459B29FDB1EB00E54C92 /* README.md in Resources */,
 				2CC6D2CE29C9F03000A66214 /* LaunchScreen.storyboard in Resources */,
 				2CC6D2CB29C9F03000A66214 /* Assets.xcassets in Resources */,
+				2CA2B1FC29FE8DD80070DCF4 /* Screenshot000.png in Resources */,
+				2CA2B1FE29FE8E400070DCF4 /* Demo000.gif in Resources */,
+				2CA2B1FB29FE8DD80070DCF4 /* Screenshot001.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
